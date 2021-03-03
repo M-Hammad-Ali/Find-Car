@@ -1,6 +1,7 @@
 import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import Slide from "react-reveal/Slide";
+import { useHistory } from 'react-router-dom';
 
 import SvgIcon from "../../../common/SvgIcon";
 import Button from "../../../common/Button";
@@ -14,6 +15,7 @@ const RightBlock = ({ title, content, button, icon, t, id }) => {
       behavior: "smooth",
     });
   };
+  const history = useHistory();
   return (
     <S.RightBlockContainer>
       <Row type="flex" justify="space-between" align="middle" id={id}>
@@ -31,7 +33,7 @@ const RightBlock = ({ title, content, button, icon, t, id }) => {
                         key={id}
                         color={item.color}
                         width="true"
-                        onClick={() => scrollTo("about")}
+                        onClick={() => history.push('/findCar')}
                       >
                         {t(item.title)}
                       </Button>
